@@ -45,6 +45,7 @@ class Book(models.Model):
       # ManyToManyField used because Subject can contain many books. Books can cover many subjects.
       # Subject declared as an object because it has already been defined.
     language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
+    image = models.FileField(upload_to = 'photo/', blank=True)
       
     def display_genre(self):
         """
@@ -65,7 +66,7 @@ class Book(models.Model):
         String for representing the Model object.
         """
         return self.title
-        
+  
         
 import uuid # Required for unique book instances
 from datetime import date
@@ -124,7 +125,6 @@ class Author(models.Model):
         """
         return reverse('author-detail', args=[str(self.id)])
     
-
     def __str__(self):
         """
         String for representing the Model object.
