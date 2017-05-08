@@ -6,13 +6,13 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^index/$', views.index, name='index'),
-    url(r'^books/$', views.BookListView.as_view(), name='books'),
-    url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
-    url(r'^authors/$', views.AuthorListView.as_view(), name='authors'),  
+    url(r'^services/$', views.BookListView.as_view(), name='books'),
+    url(r'^service/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
+    url(r'^business/$', views.AuthorListView.as_view(), name='authors'),  
 
     url(r'^genre/$', views.GenreListView.as_view(), name='genre'),  
     url(r'^genres/(?P<pk>\d+)$', views.GenreDetailView.as_view(), name='genre-detail'),  
-    url(r'^author/(?P<pk>\d+)$', views.AuthorDetailView.as_view(), name='author-detail'),
+    url(r'^businesses/(?P<pk>\d+)$', views.AuthorDetailView.as_view(), name='author-detail'),
 ]
 
 

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Services Locator</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% block title %}<title>Services Locator</title>{% endblock %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://mdbootstrap.com/live/_MDB/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://mdbootstrap.com/live/_MDB/css/mdb.min.css">
+
+
   
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -15,49 +21,188 @@
 <body>
 <div class="container">
 {% block navbar %}
-<nav class="navbar navbar-findcond navbar-fixed-top navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'home' %}">ServiceLocator</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav navbar-right">
-        <!--
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-bell-o"></i> Bildirimler <span class="bage">0</span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><i class="fa fa-fw fa-tag"></i> <span class="badge">Music</span> sayfası <span class="badge">Video</span> sayfasında etiketlendi</a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Game</span> sayfasında iletiniz beğenildi</a></li>
-                    </ul>
+
+    <!-- Font Awesome -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <style>
+        @media print {
+            #ghostery-purple-box {
+                display: none !important
+            }
+        }
+    </style>
+</head>
+
+<body class="fixed-sn mdb-skin" cz-shortcut-listen="true">
+
+    <!--Double navigation-->
+    <header>
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed custom-scrollbar ps-container ps-theme-default" data-ps-id="a22c5960-b68d-555d-3a1f-dab73b519103" style="transform: translateX(-100%);">
+
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light waves-effect waves-light">
+
+                </div>
+            </li>
+            <!--/. Logo -->
+
+            <!--Social-->
+            <li>
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/mdbootstrap" target="_blank" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+                    <li><a class="icons-sm git-ic"><i class="fa fa-github"> </i></a></li>
+                    <li><a href="https://www.linkedin.com/in/dawid-adach-97435534/pl" target="_blank" class="icons-sm li-ic"><i class="fa fa-linkedin"> </i></a></li>
+                    <li><a class="icons-sm yt-ic"><i class="fa fa-youtube"> </i></a></li>
+                    <li><a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
+                </ul>
+            </li>
+            <!--/Social-->
+
+            <!--Search Form-->
+            <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light waves-effect waves-light">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </li>
+            <!--/.Search Form-->
+
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-heart"></i> New Arrivals<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Handbags</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Shoes</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Dresses</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Skirts</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Jeans</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Outerwear</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-diamond"></i> Accessories<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Jewelry</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Wallets &amp; Purses</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-gitlab"></i> For kids<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Girls</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Boys</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-sun-o"></i> Summer<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Swimsuits</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Sandals</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-briefcase"></i> Fall / Winter<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Coats</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Boots</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-coffee "></i> Spring<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Denim jackets</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Sneakers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+        </ul>
+        <!--/. Sidebar navigation -->
+
+        <!--Navbar-->
+        <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+            <!-- SideNav slide-out button 
+            <div class="float-xs-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+            -->
+
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn">
+                <a href="{% url 'home' %}"><h3>&nbsp;Services-Locator</h3> </a>
+            </div>
+            <ul class="nav navbar-nav float-xs-right">
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'index' %}"><i class="fa fa-bars"></i> <span class="hidden-sm-down">All Services</span></a>
                 </li>
-                <li class="active"><a href="#">Ana Sayfa <span class="sr-only">(current)</span></a></li>
-                 -->
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'index' %}">All Services</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Register business</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Sign Up</a></li>
-                        <li><a href="#exit">Login</a></li>
-                    </ul>
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
+                </li>
+                <!--
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Profile</span></a>
+                    <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <a class="dropdown-item waves-effect waves-light" href="#">Logout</a>
+                        <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
+                    </div>
+                </li>
+                -->
             </ul>
 
-            <form class="navbar-form navbar-right search-form" role="search">
-                <input type="text" class="form-control" placeholder="Search" />
-            </form>
-        </div>
-    </div>
-</nav>
+        </nav>
+        <!--/.Navbar-->
+    </header>
+
+
+
 {% endblock %}
 </div>
 {% block content %}
