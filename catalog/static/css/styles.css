@@ -1,0 +1,108 @@
+ /*
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+
+body {
+    background: white url("{% static 'district/images/background.png' %}");
+}
+
+ul.errorlist {
+    padding-left: 0;
+}
+
+ul.errorlist > li {
+    list-style: none;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+}
+
+.glyphicon-star {
+    color: #CCCCCC;
+    font-size: 16px;
+}
+.glyphicon-star.active {
+    color: #FDB230;
+}
+#banner {
+  margin-top: -20px;
+  height: 400px;
+  width: 100%;
+  max-height: 50%;
+  max-width: 100%;
+  min-height: 20%;
+  min-width: 30%;
+ background-image: url("../assets/images/banner.jpeg");
+  background-image: url("district/images/1background.jpg");
+
+   background-image: url("{% static 'district/images/1background.jpg' %}");
+
+
+  background-size: cover;
+}
+
+#users {
+  font-size: 300px;
+}
+
+#head2{
+	padding: 20px;
+	font-size: 50px;
+}
+#par1 {
+	margin-left: 24px;
+	font-size: 16px;
+	font-weight: 200px;
+}
+
+#guides {
+	margin-left: 250px;
+} 
+
+#guides-row {
+	background-color: #fff;
+}
+
+#rwanda-map {
+	height: 300px;
+	width: 600px;
+}
+
+
+#footer {
+	background-color: #2171B5;
+	color: #fff;
+}
+
+h3 {
+	text-decoration: bold;
+	font-weight: bold;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+li {
+	padding: 4px;
+}
+
+
+#panel {
+  height: 10px;
+}
+
+
+
+.dropdown-menu.columns-3 {
+  min-width: 600px;
+}
+*/

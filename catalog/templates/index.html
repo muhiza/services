@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>Welcome to Services Locator Portal</h1>
+
+<p>Welcome to <em>Services Locator</em>, an online directory for difference businesses, their serives and their locations, It's will make it easier for customers to find the products you are offering to them.</p>
+
+<p>We berieve that we would help small, medium and large-scale businesses market their products, services and brands</p>
+
+
+<h2>UML Models</h2>
+<p>An UML diagram of the site's Django model structure is shown below. </p>
+
+<div>
+{% load static %}
+<img src="{% static "images/local_library_model_uml.png" %}" alt="My image" style="width:555px;height:540px;"/>
+</div>  
+
+
+<h2>Dynamic content</h2>
+
+<p>The library has the following record counts:</p>
+<ul>
+<li><strong>All products:</strong> {{ num_books }}</li>
+<li><strong>New:</strong> {{ num_instances }}</li>
+<li><strong>Available:</strong> {{ num_instances_available }}</li>
+<li><strong>Businesses:</strong> {{ num_authors }}</li>
+</ul>
+
+You have visited this page {{ num_visits }} times.
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron banner" id="banner">
+    <div class="container">
+      <hgroup>
+        <h1 style="color:#fff;">
+          Services Locator Portal
+        </h1>
+        <h2 style="color:#fff;">
+
+       Welcome to Services Locator, an online directory for difference businesses, their serives and their locations.
+
+        </h2>
+      </hgroup>
+    </div>
+</div>
+
+
+<h2>Dynamic content</h2>
+
+<p>The library has the following record counts:</p>
+<ul>
+<li><strong>All products:</strong> {{ num_books }}</li>
+<li><strong>New:</strong> {{ num_instances }}</li>
+<li><strong>Available:</strong> {{ num_instances_available }}</li>
+<li><strong>Businesses:</strong> {{ num_authors }}</li>
+</ul>
+
+You have visited this page {{ num_visits }} times.
+
+{% endblock %}
