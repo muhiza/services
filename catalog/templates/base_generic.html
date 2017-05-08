@@ -34,6 +34,14 @@
                 display: none !important
             }
         }
+
+.vertical2 {
+ height: 1307px;
+ width: 0px;
+ border-left: 1px solid #DCDCDC;
+ padding: 10px;
+ min-height: 1px; 
+}
     </style>
 </head>
 
@@ -206,7 +214,7 @@
 
 <div class="container">
 <div class="row">
-  <div class="col-sm-2">
+<div class="col-sm-2">
   {% block sidebar %}
   <ul class="sidebar-nav">
     <li><h5><a>All</a></h5></li>
@@ -273,7 +281,10 @@
     {% endif %}
 {% endblock %}
   </div>
-  <div class="col-sm-10 ">
+<div class="col-md-1">
+<hr class="vertical2">
+</div>
+  <div class="col-sm-9">
   {% block content %}{% endblock %}
   {% block pagination %}
     {% if is_paginated %}
