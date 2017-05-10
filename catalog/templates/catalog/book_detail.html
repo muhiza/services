@@ -13,15 +13,13 @@
 {% endblock %}
 {% block content %}
 <p><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
-<p><strong>What we do:</strong> {{ book.summary }}</p>
-<p><strong>Working Hours:</strong> {{ book.isbn }}</p> 
-<p><strong>Location:</strong> {{ book.language }}</p> 
-
+<p><b>What we do:</b> {{ book.summary }}</p>
+<p><b>Working Hours:</b> {{ book.isbn }}</p> 
+<p><b>Location:</b> {{ book.language }}</p> 
+<!--
 <p><strong>Profile:</strong> 
-
 <img src="{% static "images/local_library_model_uml.png" %}" alt="My image" style="width:555px;height:540px;"/>
-
-
+-->
 </p> 
 
 <p><strong>Type:</strong> {% for genre in book.genre.all %}{{genre}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
@@ -39,6 +37,120 @@
 <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
 -->
 {% endfor %}
+
+
+
+
+<!--Section: Features v.4-->
+<section class="section feature-box">
+
+    <!--Section heading-->
+    <h1 class="section-heading">Why are we so great?</h1>
+    <!--Section sescription-->
+    <p class="section-description lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam. Quia, minima?</p>
+
+    <!--First row-->
+    <div class="row features-small">
+
+        <!--First column-->
+        <div class="col-md-4">
+            <!--First row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-flag-checkered indigo-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">International</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-flask blue-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">Experimental</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-glass cyan-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">Relaxing</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/Third row-->
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-md-4 mb-r center-on-small-only flex-center">
+            <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone3.jpg" alt="" class="z-depth-0">
+        </div>
+        <!--/Second column-->
+
+        <!--Third column-->
+        <div class="col-md-4">
+            <!--First row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-heart red-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">Beloved</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-flash orange-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">Rapid</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-magic lime-text"></i>
+                </div>
+                <div class="col-10">
+                    <h4 class="feature-title">Magical</h4>
+                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+                    <div style="height:30px"></div>
+                </div>
+            </div>
+            <!--/Third row-->
+        </div>
+        <!--/Third column-->
+    </div>
+    <!--/First row-->
+
+</section>
+<!--/Section: Features v.4-->
+
+
+
 </div>
 {% endblock %}
 
