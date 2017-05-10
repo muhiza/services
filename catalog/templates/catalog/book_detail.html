@@ -1,6 +1,5 @@
 {% extends "base_detail.html" %}
 {% load staticfiles %}
-
 {% block jumbotron %}
  <div class="jumbotron text-right" style="background-image: url('{% static 'images/waka.png' %}'); padding-bottom: 10px;"><br><br>
  <h1 style="color: white;"><strong>Service:</strong> {{ book.title }}</h1>
@@ -12,17 +11,39 @@
  </div>
 {% endblock %}
 {% block content %}
-<p><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
-<p><b>What we do:</b> {{ book.summary }}</p>
+<h4><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></h4> <p>{{ book.summary|slice:'300' }}</p> 
+<hr>
+<div class="row" id="pro"><br>
+<div class="col-md-4">
+<h5><b>Vision:</b></h5> <p>{{ book.vision|slice:'100' }}</p>
+<!--
 <p><b>Working Hours:</b> {{ book.isbn }}</p> 
 <p><b>Location:</b> {{ book.language }}</p> 
+-->
+</div>
+<div class="col-md-4">
+<h5><b>Mission:</b></h5> <p>{{ book.mission|slice:'100' }}</p>
+<!--
+<p><b>Working Hours:</b> {{ book.isbn }}</p> 
+<p><b>Location:</b> {{ book.language }}</p> 
+-->
+</div>
+<div class="col-md-4">
+<h5><b>Value:</b></h5> <p>{{ book.values|slice:'100' }}</p>
+<!--
+<p><b>Working Hours:</b> {{ book.isbn }}</p> 
+<p><b>Location:</b> {{ book.language }}</p> 
+-->
+</div>
+</div>
+
 <!--
 <p><strong>Profile:</strong> 
 <img src="{% static "images/local_library_model_uml.png" %}" alt="My image" style="width:555px;height:540px;"/>
 -->
 </p> 
 
-<p><strong>Type:</strong> {% for genre in book.genre.all %}{{genre}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+
 
 <div style="margin-left:20px;margin-top:20px">
 <!--
@@ -145,12 +166,87 @@
         <!--/Third column-->
     </div>
     <!--/First row-->
-
 </section>
 <!--/Section: Features v.4-->
-
-
-
 </div>
 {% endblock %}
 
+{% block related %}
+<!--Projects section v.2-->
+<section class="section">
+
+    <!--Section heading-->
+    <h1 class="section-heading">Related Services</h1>
+    <!--Section description-->
+    <div class="row text-center">
+
+        <!--First column-->
+        <div class="col-lg-4 col-md-12 mb-r">
+
+            <!--Featured image-->
+            <div class="view overlay hm-white-slight z-depth-2">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(86).jpg">
+                <a>
+                    <div class="mask waves-effect waves-light"></div>
+                </a>
+            </div>
+
+            <!--Excerpt-->
+            <div class="card-block">
+                <a href="" class="purple-text"><h5><i class="fa fa-coffee"></i> Lifestyle</h5></a>
+                <h3>Best donuts in Radson</h3>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
+                <a class="btn btn-ins"><i class="fa fa-clone left"></i> View business</a>
+            </div>
+
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-lg-4 col-md-6 mb-r">
+
+            <!--Featured image-->
+            <div class="view overlay hm-white-slight z-depth-2">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(29).jpg">
+                <a>
+                    <div class="mask waves-effect waves-light"></div>
+                </a>
+            </div>
+
+            <!--Excerpt-->
+            <div class="card-block">
+                <a href="" class="orange-text"><h5><i class="fa fa-money"></i> Business</h5></a>
+                <h3>My restaurant in Kakiru</h3>
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime facere possimus.</p>
+                <a class="btn btn-ins"><i class="fa fa-clone left"></i> View business</a>
+            </div>
+
+        </div>
+        <!--/Second column-->
+
+        <!--Third column-->
+        <div class="col-lg-4 col-md-6 mb-r">
+
+            <!--Featured image-->
+            <div class="view overlay hm-white-slight z-depth-2">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(32).jpg">
+                <a>
+                    <div class="mask waves-effect waves-light"></div>
+                </a>
+            </div>
+
+            <!--Excerpt-->
+            <div class="card-block">
+                <a href="" class="indigo-text"><h5><i class="fa fa-plane"></i> Travels</h5></a>
+                <h3>How to work remotely?</h3>
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.</p>
+                <a class="btn btn-ins"><i class="fa fa-clone left"></i> View business</a>
+            </div>
+
+        </div>
+        <!--/Third column-->
+    </div>
+    <!--/First row-->
+</section>
+<!--/Projects section v.2-->
+{% endblock %}

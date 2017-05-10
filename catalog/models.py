@@ -48,6 +48,11 @@ class Book(models.Model):
     phone_number = models.CharField(max_length=400, default=1, help_text='Please enter the phone number of the business')
     email = models.CharField(max_length=400, help_text='Please enter an email of the business', default=1)
     image = models.FileField(upload_to = 'photo/', blank=True)
+    about_us = models.TextField(max_length=300, help_text='Enter the story about you', null=True)
+    vision  = models.TextField(max_length=300, help_text='Enter your vision', null=True)
+    mission = models.TextField(max_length=300, help_text='Enter your mission', null=True)
+    values  = models.TextField(max_length=300, help_text='Enter your mission', null=True)
+
       
     def display_genre(self):
         """
