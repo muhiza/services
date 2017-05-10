@@ -1,7 +1,7 @@
 {% extends "base_detail.html" %}
 {% load staticfiles %}
 {% block jumbotron %}
- <div class="jumbotron text-right" style="background-image: url('{% static 'images/waka.png' %}'); padding-bottom: 10px;"><br><br>
+ <div class="jumbotron text-right" style="background-image: url('https://github.com/muhiza/muzika/blob/master/waka.PNG?raw=true'); padding-bottom: 10px;"><br><br>
  <h1 style="color: white;"><strong>Service:</strong> {{ book.title }}</h1>
  <p style="color: white;">This is an example for jumbotron.</p>
  <!-- <p><a class="btn btn-primary btn-lg" role="button"> 
@@ -9,6 +9,7 @@
  -->
  </p>
  </div>
+
 {% endblock %}
 {% block content %}
 <h4><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></h4> <p>{{ book.summary|slice:'300' }}</p> 
