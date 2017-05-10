@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^index/$', views.index, name='index'),
     url(r'^services/$', views.BookListView.as_view(), name='books'),
-    url(r'^service/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
+    url(r'^services_locator/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
     url(r'^business/$', views.AuthorListView.as_view(), name='authors'),  
 
     url(r'^genre/$', views.GenreListView.as_view(), name='genre'),  

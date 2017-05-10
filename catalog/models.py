@@ -39,12 +39,14 @@ class Book(models.Model):
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
       # Foreign Key used because book can only have one author, but authors can have multiple books
       # Author as a string rather than object because it hasn't been declared yet in file.
-    summary = models.TextField(max_length=1000, help_text="Enter a brief description of the book")
-    isbn = models.CharField('ISBN',max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
-    genre = models.ManyToManyField(Genre, help_text="Select a genre for this book")
+    summary = models.TextField(max_length=1000, help_text="Enter a brief description of the Business")
+    isbn = models.CharField('ISBN',max_length=13, help_text='Please enter your business working hours')
+    genre = models.ManyToManyField(Genre, help_text="Please enter the type of the business")
       # ManyToManyField used because Subject can contain many books. Books can cover many subjects.
       # Subject declared as an object because it has already been defined.
-    language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
+    language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True, help_text='Please enter the location of the business')
+    phone_number = models.CharField(max_length=400, default=1, help_text='Please enter the phone number of the business')
+    email = models.CharField(max_length=400, help_text='Please enter an email of the business', default=1)
     image = models.FileField(upload_to = 'photo/', blank=True)
       
     def display_genre(self):
@@ -60,6 +62,8 @@ class Book(models.Model):
         Returns the url to access a particular book instance.
         """
         return reverse('book-detail', args=[str(self.id)])
+
+
 
     def __str__(self):
         """

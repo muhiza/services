@@ -216,16 +216,38 @@
 <br><br>
 
 
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-<div class="col-sm-2">
+<div class="col-sm-3">
   {% block sidebar %}
+  <!--
   <ul class="sidebar-nav">
+    <li><h5>{{ book.author }}</h5> </li>
     <li><h5><a>All</a></h5></li>
     <li><a href="{% url 'index' %}">Home</a></li>
     <li><a href="{% url 'books' %}">All Services</a></li>
     <li><a href="{% url 'authors' %}">All businesses</a></li>
   </ul>
+-->
+
+<div class="panel panel-default">
+ <div class="panel-heading">
+ <h2 class="panel-title">
+ <h5><b>{{ book.author }} </b></h5>
+ </h2>
+ </div>
+ <div class="panel-body">
+   <ul class="sidebar-nav">
+    <li><b>Location:</b> {{ book.language }}</li>
+    <li><b>Working Hours: </b>{{ book.isbn }} </li>
+    <li><b>Phone Number:</b> {{ book.phone_number }}</li>
+    <li><b>Email: </b>{{ book.email }}</li>
+  </ul>
+ </div>
+</div>
+
+
+<!--
   <ul class="sidebar-nav">
     <li><h5><b>Categories</b></h5></li>
     <li><a href="{% url 'index' %}">Computer</a></li>
@@ -283,11 +305,11 @@
    {% endif %}
    </ul>
     {% endif %}
+-->
 {% endblock %}
   </div>
-<div class="col-md-1">
-<hr class="vertical2">
-</div>
+
+
   <div class="col-sm-9">
   {% block content %}{% endblock %}
   {% block pagination %}
@@ -471,8 +493,6 @@
     <script>
         new WOW().init();
     </script>
-    <div id="window-resizer-tooltip">
-        <a href="#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth"></span> x <span class="tooltipHeight" id="winHeight"></span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth"></span>        x <span class="tooltipHeight" id="vpHeight"></span></div>
     <div class="hiddendiv common"></div>
     <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
 </body>

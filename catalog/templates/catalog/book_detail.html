@@ -1,13 +1,29 @@
-{% extends "base_generic.html" %}
+{% extends "base_detail.html" %}
+{% load staticfiles %}
 
+{% block jumbotron %}
+ <div class="jumbotron text-right" style="background-image: url('{% static 'images/waka.png' %}'); padding-bottom: 10px;"><br><br>
+ <h1 style="color: white;"><strong>Service:</strong> {{ book.title }}</h1>
+ <p style="color: white;">This is an example for jumbotron.</p>
+ <!-- <p><a class="btn btn-primary btn-lg" role="button"> 
+ Learn more</a>
+ -->
+ </p>
+ </div>
+{% endblock %}
 {% block content %}
-<br>
-<h1>Service: {{ book.title }}</h1>
-
 <p><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
 <p><strong>What we do:</strong> {{ book.summary }}</p>
 <p><strong>Working Hours:</strong> {{ book.isbn }}</p> 
-<p><strong>Location:</strong> {{ book.language }}</p>  
+<p><strong>Location:</strong> {{ book.language }}</p> 
+
+<p><strong>Profile:</strong> 
+
+<img src="{% static "images/local_library_model_uml.png" %}" alt="My image" style="width:555px;height:540px;"/>
+
+
+</p> 
+
 <p><strong>Type:</strong> {% for genre in book.genre.all %}{{genre}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
 
 <div style="margin-left:20px;margin-top:20px">
