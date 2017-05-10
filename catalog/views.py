@@ -60,7 +60,27 @@ class BookListView(generic.ListView):
     Generic class-based view for a list of books.
     """
     model = Book
+    #queryset = Book.objects.filter(title__icontains='rwanda')[:5]
+    #template_name = 'muhiza/world.html'
+    #context_object_name = 'my_book_list'   # your own name for the list as a template variable
+    #queryset = Book.objects.filter(title__icontains='war')[:5] # Get 5 books containing the title war
+    #template_name = 'books/my_arbitrary_template_name_list.html'
     paginate_by = 10
+    #def get_queryset(self):
+        #return Book.objects.filter(title__icontains='Rwanda')
+
+    #def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        # context = super(BookListView, self).get_context_data(**kwargs)
+        # Get the blog from id and add it to the context
+        # context['some_data'] = 'This is just some data'
+        # return context
+
+
+
+
+
+
     
 class BookDetailView(generic.DetailView):
     """
