@@ -1,7 +1,14 @@
-{% extends "base_generic.html" %}
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+<div class="container">
+{% block title %}
+<br><br><br><br><br><br><br><br>
+<h2>Logout</h2>
+{% endblock %}
 
 {% block content %}
-<p>Logged out!</p>  
-
-<a href="{% url 'login'%}">Click here to login again.</a>
+<p>You have been loged out</p>
 {% endblock %}
+
+</div>

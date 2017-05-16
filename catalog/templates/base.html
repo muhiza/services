@@ -177,15 +177,36 @@
                 <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-bars"></i> <span class="hidden-sm-down">All Services</span></a>
                 </li>
+
+                {% if user.is_authenticated %}
                 <li class="nav-item ">
-                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
+                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-diamond rotate-icon"></i> <span class="hidden-sm-down">Recommended</span></a>
                 </li>
+                {% endif %}
+
                 <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
+                {% if user.is_authenticated %}
+                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-user"></i> <span class="hidden-sm-down">{{ user.username }}</span></a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'auth:logout' %}"><i class="fa fa-sign-out"></i> <span class="hidden-sm-down">Logout</span></a>
+                </li>
+
+                {% else %}
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'auth:login'%} ?next={{request.path}}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Login</span></a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="/accounts/register"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
+                </li>
+                {% endif %}
+
+
+
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Profile</span></a>

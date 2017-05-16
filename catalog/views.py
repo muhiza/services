@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
 from django.utils.decorators import method_decorator
-
-
+from django.core.urlresolvers import reverse
+from .forms import ReviewForm
 # Create your views here.
 
 from .models import Book, Author, BookInstance, Genre
@@ -58,7 +58,7 @@ def home(request):
 from django.views import generic
 
 
-@method_decorator(login_required, name='dispatch')
+
 class BookListView(generic.ListView):
     """
     Generic class-based view for a list of books.
@@ -85,7 +85,7 @@ class BookListView(generic.ListView):
 
 
 
-    
+@method_decorator(login_required, name='dispatch')
 class BookDetailView(generic.DetailView):
     """
     Generic class-based detail view for a book.
@@ -229,3 +229,32 @@ class BookDelete(PermissionRequiredMixin, DeleteView):
     model = Book
     success_url = reverse_lazy('books')
     permission_required = 'catalog.can_mark_returned'
+
+
+
+
+
+
+
+@login_required
+def add_review(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        rating = form.cleaned_data['rating']
+        comment = form.cleaned_data['comment']
+        user_name = request.user.username
+        review = Review()
+        review.wine = wine
+        review.user_name = user_name
+        review.rating = rating
+        review.comment = comment
+        review.pub_date = datetime.datetime.now()
+        review.save()
+        update_clusters()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('catalog:book_detail', args=(book.id,)))
+    return render(request, 'catalog/book_detail.html', {'book': book, 'form': form})
+    

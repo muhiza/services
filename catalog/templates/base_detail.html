@@ -15,6 +15,7 @@
 
   <!-- Add additional CSS in static file -->
   {% load static %}
+  {% load bootstrap3 %}
 </head>
 <body>
 
@@ -200,21 +201,31 @@
                 <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-bars"></i> <span class="hidden-sm-down">All Services</span></a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item ">
-                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
+                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-diamond rotate-icon"></i> <span class="hidden-sm-down">Recommended</span></a>
                 </li>
+                {% endif %}
                 <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link waves-effect waves-light" href="/accounts/register"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
-                </li>
-
                 
                 <li class="nav-item ">
                 {% if user.is_authenticated %}
-                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">{{ user.get_username }}</span></a>
+                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-user"></i> <span class="hidden-sm-down">{{ user.username }}</span></a>
+                </li>
+                {% else %}
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'auth:login' %}?next={{request.path}}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Login</span></a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="/accounts/register"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
+                </li>
                 {% endif %}
+
+                <li class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'auth:logout' %}"><i class="fa fa-sign-out"></i> <span class="hidden-sm-down">Logout</span></a>
                 </li>
 
                 <!--
@@ -236,8 +247,6 @@
 </div>
 <br><br>
 <br><br>
-
-
 <div class="container-fluid">
 <div class="row">
 <div class="col-sm-3">
@@ -251,7 +260,6 @@
     <li><a href="{% url 'authors' %}">All businesses</a></li>
   </ul>
 -->
-
 <div class="panel panel-default">
  <div class="panel-heading">
  <h2 class="panel-title">
@@ -268,8 +276,6 @@
   </ul>
  </div>
 </div>
-
-
 <div class="panel panel-default">
  <div class="panel-heading">
  <h2 class="panel-title">
@@ -279,6 +285,52 @@
  <div class="panel-body">
 <!--Naked Form-->
 <div class="card-block">
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'add_review' book.id %}" method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "star" %} Add
+    </button>
+    {% endbuttons %}
+</form>
+
+
+
+
+
+<h3>Recent reviews</h3>
+
+{% if book.review_set.all %}
+<div class="row">
+    {% for review in book.review_set.all %}
+    <div class="col-xs-6 col-lg-4">
+        <em>{{ review.comment }}</em>
+        <h6>Rated {{ review.rating }} of 5 by <a href="#" >{{ review.user_name }}</a></h6>
+        <h5><a href="#">
+        Read more
+        </a></h5>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews for this wine yet</p>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
     <!--Body-->
     <select class="custom-select">
   <option selected>How are we serving you?</option>
@@ -288,14 +340,12 @@
   <option value="4">4</option>
   <option value="5">5</option>
 </select><br>
-
 <div class="md-form">
-
     <textarea type="text" id="form8" class="md-textarea"></textarea>
     <label for="form8">Comment</label>
 </div>
-<div class="text-center">
-    <button class="btn btn-default">Submit</button>
+<div class="text-left">
+    <button class="btn btn-default">Comment</button>
 </div>
 
 </div>

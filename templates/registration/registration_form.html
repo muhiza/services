@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
 
-<div class="container" style="width: 30px;">
+<div class="container">
 {% block title %}
 <br><br><br><br><br>
-<div class="card">
-<div class="card-block">
-<h2>Login</h2>
+<h2>Register</h2>
 {% endblock %}
 
 {% block content %}
-<form action="{% url 'auth:login' %}" method="post" class="form">
+<div class="card">
+    <div class="card-block">
+
+<form method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form layout='inline' %}
     {% buttons %}
     <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "user" %} Login
+      {% bootstrap_icon "user" %} Register
     </button>
     {% endbuttons %}
 </form>
@@ -23,3 +24,4 @@
 </div>
 </div>
 </div>
+

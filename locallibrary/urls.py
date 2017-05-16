@@ -18,7 +18,7 @@ from django.contrib import admin
 
 # Use include() to add URLS from the catalog application and authentication system
 from django.conf.urls import include
-
+from catalog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns += [
     url(r'^catalog/', include('catalog.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls', namespace="auth")),
+    url(r'^book/(?P<book_id>[0-9]+)/add_review/$', views.add_review, name='add_review'),
 ]
 
 
@@ -48,9 +49,9 @@ urlpatterns += [
 
 
 #Add Django site authentication urls (for login, logout, password management)
-urlpatterns += [
-    url('^accounts/', include('django.contrib.auth.urls')),
-]
+#urlpatterns += [
+#    url('^accounts/', include('django.contrib.auth.urls')),
+#]
 
 
 urlpatterns += [
