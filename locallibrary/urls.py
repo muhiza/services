@@ -27,6 +27,8 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^catalog/', include('catalog.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls', namespace="auth")),
 ]
 
 
@@ -49,3 +51,10 @@ urlpatterns += [
 urlpatterns += [
     url('^accounts/', include('django.contrib.auth.urls')),
 ]
+
+
+urlpatterns += [
+    url('^accounts/', include('django.contrib.auth.urls')),
+]
+
+

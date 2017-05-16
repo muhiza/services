@@ -14,6 +14,8 @@
 {% block content %}
 <h4><strong>Business:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></h4> <p>{{ book.summary|slice:'300' }}</p> 
 <hr>
+<br><br><br><br>
+ <h1 class="section-heading">Our Profile</h1>
 <div class="row" id="pro"><br>
 <div class="col-md-4">
 <h5><b>Vision:</b></h5> <p>{{ book.vision|slice:'100' }}</p>
@@ -65,7 +67,6 @@
 
 <!--Section: Features v.4-->
 <section class="section feature-box">
-
     <!--Section heading-->
     <h1 class="section-heading">Why are we so great?</h1>
     <!--Section sescription-->

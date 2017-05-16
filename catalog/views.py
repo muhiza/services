@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, permission_required
+from django.utils.decorators import method_decorator
+
 
 # Create your views here.
 
@@ -55,6 +58,7 @@ def home(request):
 from django.views import generic
 
 
+@method_decorator(login_required, name='dispatch')
 class BookListView(generic.ListView):
     """
     Generic class-based view for a list of books.

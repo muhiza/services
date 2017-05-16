@@ -207,8 +207,16 @@
                     <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
+                    <a class="nav-link waves-effect waves-light" href="/accounts/register"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>
                 </li>
+
+                
+                <li class="nav-item ">
+                {% if user.is_authenticated %}
+                    <a class="nav-link waves-effect waves-light" href="{% url 'books' %}"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">{{ user.get_username }}</span></a>
+                {% endif %}
+                </li>
+
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Profile</span></a>
@@ -260,6 +268,41 @@
   </ul>
  </div>
 </div>
+
+
+<div class="panel panel-default">
+ <div class="panel-heading">
+ <h2 class="panel-title">
+ <h5><b>Rate Us</b></h5>
+ </h2>
+ </div>
+ <div class="panel-body">
+<!--Naked Form-->
+<div class="card-block">
+    <!--Body-->
+    <select class="custom-select">
+  <option selected>How are we serving you?</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select><br>
+
+<div class="md-form">
+
+    <textarea type="text" id="form8" class="md-textarea"></textarea>
+    <label for="form8">Comment</label>
+</div>
+<div class="text-center">
+    <button class="btn btn-default">Submit</button>
+</div>
+
+</div>
+<!--Naked Form-->
+ </div>
+</div>
+
 
 
 <div class="panel panel-default">
